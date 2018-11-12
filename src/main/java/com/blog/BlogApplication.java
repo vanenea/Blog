@@ -1,14 +1,15 @@
 package com.blog;
 
-import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
-import org.springframework.transaction.annotation.EnableTransactionManagement;
+import org.springframework.scheduling.annotation.EnableScheduling;
+import org.springframework.web.bind.annotation.RestController;
 
-@SpringBootApplication(exclude= {DataSourceAutoConfiguration.class})
-@MapperScan(basePackages="com.blog.mapper")
-@EnableTransactionManagement
+@SpringBootApplication
+@RestController
+@EnableAutoConfiguration
+@EnableScheduling
 public class BlogApplication {
 
 	public static void main(String[] args) {

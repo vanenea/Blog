@@ -2,10 +2,7 @@ package com.blog.admin.service.impl;
 
 import java.util.List;
 
-import javax.annotation.Resource;
-
-import org.apache.ibatis.session.SqlSessionFactory;
-import org.mybatis.spring.support.SqlSessionDaoSupport;
+import org.apache.commons.codec.digest.DigestUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -24,7 +21,7 @@ public class UserServiceImpl implements IUserService {
 	public TUsers findUserByUsername(String username) {
 		TUsersExample example = new TUsersExample();
 		Criteria createCriteria = example.createCriteria();
-		createCriteria.andUsernameNotEqualTo(username);
+		createCriteria.andUsernameEqualTo(username);
 		List<TUsers> list = usersMapper.selectByExample(example);
 		if(list!=null && list.size()==1) {
 			return list.get(0);
@@ -37,7 +34,8 @@ public class UserServiceImpl implements IUserService {
 		String username = user.getUsername();
 		if(username!=null) {
 			TUsers u = findUserByUsername(username);
-			if(u!=null && u.getPassword().equals(user.getPassword())) {
+			String encode = DigestUtils.md5Hex(user.getPassword());
+			if(u!=null && u.getPassword().equals(encode)) {
 				return "0000";
 			} 
 		}

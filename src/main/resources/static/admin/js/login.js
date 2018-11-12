@@ -1,11 +1,13 @@
 var vm = new Vue({
+	el : "#app",
 	data : {
 		username : "",
 		password : "",
 		tip : ""
 	},
 	methods : {
-		login : function(){
+		toLogin : function(){
+			console.log("######")
 			if(""==this.username){
 				this.tip = "请输入账户名"
 				return;
@@ -22,8 +24,11 @@ var vm = new Vue({
 				type : "POST",
 				dataType : "json",
 				success : function(result){
+					console.log("######"+result);
 					if("0000"==result.code){
-						location.href = "index.html";
+						location.href = "/admin/index";
+					} else {
+						vm.tip = result.msg;
 					}
 				}
 			})
