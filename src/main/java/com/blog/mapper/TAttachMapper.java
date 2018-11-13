@@ -2,12 +2,14 @@ package com.blog.mapper;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
 import com.blog.model.TAttach;
 import com.blog.model.TAttachExample;
 
 
+@Mapper
 public interface TAttachMapper {
     int countByExample(TAttachExample example);
 

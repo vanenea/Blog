@@ -2,11 +2,13 @@ package com.blog.mapper;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
 import com.blog.model.TContents;
 import com.blog.model.TContentsExample;
 
+@Mapper
 public interface TContentsMapper {
     int countByExample(TContentsExample example);
 

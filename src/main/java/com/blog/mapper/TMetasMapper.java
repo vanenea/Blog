@@ -2,11 +2,13 @@ package com.blog.mapper;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
 import com.blog.model.TMetas;
 import com.blog.model.TMetasExample;
 
+@Mapper
 public interface TMetasMapper {
     int countByExample(TMetasExample example);
 
