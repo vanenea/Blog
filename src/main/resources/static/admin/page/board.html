@@ -67,10 +67,9 @@
                                 </div>
                                 <div class="panel-body">
                                     <ul class="list-group">
-                                        <li class="list-group-item">
+                                        <li class="list-group-item" v-for="contents in contentsList">
                             			<span class="badge badge-primary"></span>
-                                            <a target="_blank" href="">{{
-                                            }}</a>
+                                            <a target="_blank" href="javascript:;">{{contents.title}}</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -83,11 +82,11 @@
                                 </div>
                                 <div class="panel-body">
                                     <div >
-                                        <div class="alert alert-warning">
+                                        <div class="alert alert-warning" v-if="commentsList.length==0">
                                           	  还没有收到留言.
                                         </div>
                                     </div>
-                                    <ul class="list-group">
+                                    <ul class="list-group" v-else>
                                         <li class="list-group-item">
                                             <div>
                                                 <a target="_blank"></a>
@@ -104,9 +103,9 @@
                                     <h4 class="panel-title">系统日志</h4>
                                 </div>
                                 <div class="panel-body">
-                                    <ul class="list-group" >
-                                        <li class="list-group-item">
-                                            <span></span>
+                                    <ul class="list-group" v-if="logsList.length!=0">
+                                        <li class="list-group-item" v-for="logs in logsList">
+                                            <span>{{logs.action}} >> {{logs.ip}} >> {{logs.created}}</span>
                                         </li>
                                     </ul>
                                 </div>

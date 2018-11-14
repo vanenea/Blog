@@ -1,5 +1,8 @@
 package com.blog.model;
 
+import com.blog.utls.JsonDateValue;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+
 public class TLogs {
     private Integer id;
 
@@ -10,8 +13,8 @@ public class TLogs {
     private Integer authorId;
 
     private String ip;
-
-    private Integer created;
+    @JsonSerialize(using=JsonDateValue.class)
+    private long created;
 
     public Integer getId() {
         return id;
@@ -53,7 +56,7 @@ public class TLogs {
         this.ip = ip == null ? null : ip.trim();
     }
 
-    public Integer getCreated() {
+    public long getCreated() {
         return created;
     }
 
