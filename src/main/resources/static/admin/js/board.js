@@ -9,6 +9,19 @@ var vm = new Vue({
 		commentsList : [],
 		logsList : []
 	},
+	filters:{
+		dataFormat : function(param){
+			
+			var date =  new Date(param*1000);
+			var year = date.getFullYear(),
+				month = date.getMonth()+1,
+				day = date.getDate(),
+				hour = date.getHours(),
+				min = date.getMinutes(),
+				seconds = date.getSeconds();
+			return year+"-"+month+"-"+day+" "+hour+":"+min+":"+seconds;
+		}
+	},
 	mounted : function(){
 		this.$nextTick(function(){
 			this.init();

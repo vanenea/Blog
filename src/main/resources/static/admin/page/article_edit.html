@@ -1,13 +1,22 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org" th:with="title='保存文章',active='publish'">
-<header th:replace="admin/header::headerFragment(${title},${active})"></header>
-<link th:href="@{/admin/plugins/tagsinput/jquery.tagsinput.css}" rel="stylesheet"/>
-<link th:href="@{/admin/plugins/select2.dist.css/select2-bootstrap.css}" rel="stylesheet"/>
-<link th:href="@{/admin/plugins/toggles/toggles.css}" rel="stylesheet"/>
+<html>
+<title>管理中心</title>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<meta content="Coderthemes" name="author" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<link rel="shortcut icon" href="/admin/images/favicon.png" />
+<link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+<link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+<link rel="stylesheet" type="text/css" href="/common/css/style.min.css" />
+<link rel="stylesheet" href="//cdn.bootcss.com/limonte-sweetalert2/6.4.1/sweetalert2.min.css" />
 
+<link href="/common/css/jquery.tagsinput.css" rel="stylesheet"/>
+<link href="/common/css/select2-bootstrap.css" rel="stylesheet"/>
+<link href="/common/css/toggles.css" rel="stylesheet"/>
 <link href="//cdn.bootcss.com/multi-select/0.9.12/css/multi-select.css" rel="stylesheet"/>
 <link href="//cdn.bootcss.com/select2/3.4.8/select2.min.css" rel="stylesheet"/>
-<link th:href="@{/admin/plugins/md/css/style.css}" rel="stylesheet"/>
+<link href="/common/css/style.css" rel="stylesheet"/>
 <style>
     #tags_tagsinput {
         background-color: #fafafa;
@@ -24,7 +33,6 @@
 </style>
 <body class="fixed-left">
 <div id="wrapper">
-    <div th:replace="admin/header::header-body"></div>
     <div class="content-page">
         <div class="content">
             <div class="container">
@@ -142,20 +150,22 @@
         </div>
     </div>
 </div>
-<div th:replace="admin/footer :: footer"></div>
+<footer class="footer text-right">
+	2017 © <a target="_blank" href="https://github.com/ZHENFENG13/My-Blog">My Blog</a><div class=""></div>
+</footer>
+<script src="//cdn.bootcss.com/jquery/2.2.3/jquery.min.js"></script>
+<script src="/common/js/jquery.tagsinput.min.js"></script>
+<script src="/common/js/jquery.quicksearch.js"></script>
 
-<script th:src="@{/admin/plugins/tagsinput/jquery.tagsinput.min.js}"></script>
-<script th:src="@{/admin/plugins/jquery-multi-select/jquery.quicksearch.js}"></script>
+<script src="/common/js/jquery.scrollto.js"></script>
+<script src="/common/js/pagedown.js"></script>
+<script src="/common/js/pagedown-extra.js"></script>
+<script src="/common/js/diff.js"></script>
+<script src="/common/js/md.js"></script>
 
-<script th:src="@{/admin/plugins/md/js/jquery.scrollto.js}"></script>
-<script th:src="@{/admin/plugins/md/js/pagedown.js}"></script>
-<script th:src="@{/admin/plugins/md/js/pagedown-extra.js}"></script>
-<script th:src="@{/admin/plugins/md/js/diff.js}"></script>
-<script th:src="@{/admin/plugins/md/js/md.js}"></script>
-
-<script th:src="@{//cdn.bootcss.com/multi-select/0.9.12/js/jquery.multi-select.min.js}"></script>
-<script th:src="@{//cdn.bootcss.com/select2/3.4.8/select2.min.js}"></script>
-<script th:src="@{//cdn.bootcss.com/jquery-toggles/2.0.4/toggles.min.js}"></script>
-<script th:src="@{/admin/js/article.js}"></script>
+<script src="//cdn.bootcss.com/multi-select/0.9.12/js/jquery.multi-select.min.js"></script>
+<script src="//cdn.bootcss.com/select2/3.4.8/select2.min.js"></script>
+<script src="//cdn.bootcss.com/jquery-toggles/2.0.4/toggles.min.js"></script>
+<script src="/admin/js/articleEdit.js"></script>
 </body>
 </html>

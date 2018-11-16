@@ -81,17 +81,16 @@
                                     <h4 class="panel-title">最新留言</h4>
                                 </div>
                                 <div class="panel-body">
-                                    <div >
-                                        <div class="alert alert-warning" v-if="commentsList.length==0">
+                                    <div v-if="commentsList.length==0">
+                                        <div class="alert alert-warning" >
                                           	  还没有收到留言.
                                         </div>
                                     </div>
                                     <ul class="list-group" v-else>
-                                        <li class="list-group-item">
+                                        <li class="list-group-item" v-for="comments in commentsList">
                                             <div>
-                                                <a target="_blank"></a>
+                                                <a target="_blank">{{comments}}</a>
                                             </div>
-                                            <a href="" target="_blank"></a>
                                         </li>
                                     </ul>
                                 </div>
@@ -105,7 +104,7 @@
                                 <div class="panel-body">
                                     <ul class="list-group" v-if="logsList.length!=0">
                                         <li class="list-group-item" v-for="logs in logsList">
-                                            <span>{{logs.action}} >> {{logs.ip}} >> {{logs.created}}</span>
+                                            <span>{{logs.action}} >> {{logs.ip}} >> {{logs.created | dataFormat}}</span>
                                         </li>
                                     </ul>
                                 </div>
