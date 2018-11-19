@@ -48,7 +48,7 @@ public class BoardServiceImpl implements IBoardService {
 		example.createCriteria().andTypeEqualTo("link");
 		int linkCount = metasMapper.countByExample(example );
 		List<TContents> contentsList = contentsMapper.selectByExample(null);
-		List<TComments> commentsList = commentsMapper.selectByExample(null);
+		List<TComments> commentsList = commentsMapper.selectByExampleWithBLOBs(null);
 		List<TLogs> logsList = logsMapper.selectByExample(null);
 		result.put("contentsCount", contentsCount);
 		result.put("commentsCount", commentsCount);

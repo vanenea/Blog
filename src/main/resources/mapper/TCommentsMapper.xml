@@ -15,6 +15,7 @@
     <result column="type" property="type" jdbcType="VARCHAR" />
     <result column="status" property="status" jdbcType="VARCHAR" />
     <result column="parent" property="parent" jdbcType="INTEGER" />
+    <result column="content" property="content" jdbcType="LONGVARCHAR"/>
   </resultMap>
   <resultMap id="ResultMapWithBLOBs" type="com.blog.model.TComments" extends="BaseResultMap" >
     <result column="content" property="content" jdbcType="LONGVARCHAR" />

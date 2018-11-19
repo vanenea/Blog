@@ -89,7 +89,7 @@
                                     <ul class="list-group" v-else>
                                         <li class="list-group-item" v-for="comments in commentsList">
                                             <div>
-                                                <a target="_blank">{{comments}}</a>
+                                                <a target="_blank" v-html="comments.content"></a>
                                             </div>
                                         </li>
                                     </ul>
