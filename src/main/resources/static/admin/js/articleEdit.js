@@ -1,7 +1,7 @@
-var tale = new $.tale();
+ var tale = new $.tale();
 
 var vm = new Vue({
-	el : "#wrapper",
+	el : "#app",
 	data : {
 		content : "",
 		title : ""
@@ -9,13 +9,13 @@ var vm = new Vue({
 	methods : {
 		submit : function(text){
 			if(""==vm.title){
-				tale.alertWarn('请输入文章标题');
+				//tale.alertWarn('请输入文章标题');
 				return;
 			}
 			if(""==vm.content){
-				tale.alertWarn('请输入文章内容');
+				//tale.alertWarn('请输入文章内容');
 			}
-			
+
 		}
 	}
 });
