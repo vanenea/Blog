@@ -43,9 +43,15 @@
                     </div>
                     <div class="col-md-12">
                         <form id="articleForm" role="form" novalidate="novalidate">
-                            
+                            <input type="hidden" name="categories" id="categories"/>
+                            <input type="hidden" name="status" id="status"/>
+                            <input type="hidden" name="allowComment" id="allow_comment"/>
+                            <input type="hidden" name="allowPing" id="allow_ping"/>
+                            <input type="hidden" name="allowFeed" id="allow_feed"/>
+                            <input type="hidden" name="content" id="content-editor"/>
+                           
                             <div class="form-group col-md-6" style="padding: 0 10px 0 0;">
-                                <input v-model="title" type="text" class="form-control" placeholder="请输入文章标题（必须）" name="title"
+                                <input type="text" class="form-control" placeholder="请输入文章标题（必须）" name="title"
                                        required="required"
                                        aria-required="true"/>
                             </div>
@@ -67,7 +73,7 @@
                             </div>
                             <div class="clearfix"></div>
                             <div class="form-group">
-                                <textarea v-model="content" style="height: 450px" autocomplete="off" id="text" name="text"
+                                <textarea style="height: 450px" autocomplete="off" id="text" name="text"
                                           class="markdown-textarea" ></textarea>
                             </div>
 
@@ -121,11 +127,11 @@
                             <div class="text-right">
                                 <a class="btn btn-default waves-effect waves-light" href="">返回列表</a>
                                 <button type="button" class="btn btn-primary waves-effect waves-light"
-                                        @click="submit('publish');">
+                                        onclick="subArticle('publish');">
                                     保存文章
                                 </button>
                                 <button type="button" class="btn btn-warning waves-effect waves-light"
-                                        @click="submit('draft');">
+                                        onclick="subArticle('draft');">
                                     存为草稿
                                 </button>
                             </div>

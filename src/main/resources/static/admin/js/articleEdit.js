@@ -1,4 +1,4 @@
- var tale = new $.tale();
+/* var tale = new $.tale();
 
 var vm = new Vue({
 	el : "#app",
@@ -19,3 +19,4 @@ var vm = new Vue({
 		}
 	}
 });
+*/

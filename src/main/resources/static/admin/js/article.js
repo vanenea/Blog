@@ -1,7 +1,7 @@
-/**
- * Created by 13 on 2017/2/22.
- */
-// Tags Input
+var allow_comment = true;
+var allow_ping = true;
+var allow_feed = true;
+
 $('#tags').tagsInput({
     width: '100%',
     height: '35px',
@@ -39,14 +39,25 @@ function subArticle(status) {
     }
     $('#content-editor').val(content);
     $("#articleForm #status").val(status);
-    $("#articleForm #categories").val($('#multiple-sel').val());
-    var params = $("#articleForm").serialize();
-    var url = $('#articleForm #cid').val() != '' ? '/admin/article/modify' : '/admin/article/publish';
+    var categories = $('#multiple-sel').val();
+    var tag = $("#tags").val();
+   // var params = $("#articleForm").serialize();
+    var params = {
+    		"title" : title,
+    		"status" : status,
+    		"tags" : tag,
+    		"categories" : categories,
+    		"allowComment" : allow_comment,
+    		"allowPing" : allow_ping,
+    		"allowFeed" : allow_feed,
+    		"content" : content
+    }
+    var url = "/admin/insertArticle";
     tale.post({
         url:url,
         data:params,
         success: function (result) {
-            if (result && result.success) {
+            if (result && "0000"==result.code) {
                 tale.alertOk({
                     text:'文章保存成功',
                     then: function () {
@@ -75,9 +86,11 @@ function allow_comment(obj) {
     var off = this_.find('.toggle-off.active').length;
     if (on == 1) {
         $('#allow_comment').val(false);
+        allow_comment = true;
     }
     if (off == 1) {
         $('#allow_comment').val(true);
+        allow_comment = false;
     }
 }
 
@@ -87,9 +100,11 @@ function allow_ping(obj) {
     var off = this_.find('.toggle-off.active').length;
     if (on == 1) {
         $('#allow_ping').val(false);
+        allow_ping = true;
     }
     if (off == 1) {
         $('#allow_ping').val(true);
+        allow_ping = false;
     }
 }
 
@@ -100,9 +115,11 @@ function allow_feed(obj) {
     var off = this_.find('.toggle-off.active').length;
     if (on == 1) {
         $('#allow_feed').val(false);
+        allow_feed = true;
     }
     if (off == 1) {
         $('#allow_feed').val(true);
+        allow_feed = false;
     }
 }
 

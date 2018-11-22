@@ -30,16 +30,16 @@ public class UserServiceImpl implements IUserService {
 	}
 
 	@Override
-	public String login(TUsers user) {
+	public TUsers login(TUsers user) {
 		String username = user.getUsername();
 		if(username!=null) {
 			TUsers u = findUserByUsername(username);
 			String encode = DigestUtils.md5Hex(user.getPassword());
 			if(u!=null && u.getPassword().equals(encode)) {
-				return "0000";
+				return u;
 			} 
 		}
-		return "1111";
+		return null;
 	}
 
 	

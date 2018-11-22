@@ -16,5 +16,5 @@ public interface IUserService {
 	 * @param user
 	 * @return
 	 */
-	String login(TUsers user);
+	TUsers login(TUsers user);
 }
