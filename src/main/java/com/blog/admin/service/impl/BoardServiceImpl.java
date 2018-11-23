@@ -14,7 +14,6 @@ import com.blog.mapper.TCommentsMapper;
 import com.blog.mapper.TContentsMapper;
 import com.blog.mapper.TLogsMapper;
 import com.blog.mapper.TMetasMapper;
-import com.blog.model.JsonResult;
 import com.blog.model.TComments;
 import com.blog.model.TContents;
 import com.blog.model.TContentsExample;

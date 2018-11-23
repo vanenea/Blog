@@ -11,6 +11,7 @@
 <link rel="stylesheet" type="text/css" href="/common/css/style.min.css" />
 <link rel="stylesheet" href="//cdn.bootcss.com/limonte-sweetalert2/6.4.1/sweetalert2.min.css" />
 <body class="fixed-left">
+<div id="app">
 <div id="wrapper">
     <div class="content-page">
         <div class="content">
@@ -32,42 +33,41 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <th:block th:each="post : ${articles.list}">
-                                <tr th:cid="${post.cid}">
+                            <th v-for="item in items">
+                                <tr th:cid="item.cid">
                                     <td>
-                                        <a th:href="@{'/admin/article/'+${post.cid}}" th:text="${post.title}"></a>
+                                        <a :href="" v-text="item.title"></a>
                                     </td>
-                                    <td><th:block th:text="${commons.fmtdate(post.created, 'yyyy-MM-dd HH:mm:ss')}"/></td>
-                                    <td><th:block th:text="${post.hits}"/></td>
-                                    <td><th:block th:text="${post.categories}"/></td>
+                                    <td><th v-text=""/></td>
+                                    <td><th v-text="item.hits"/></td>
+                                    <td><th v-text="item.categories"/></td>
                                     <td>
-                                        <th:block th:if="${post.status == 'publish'}">
+                                        <th v-if="item.status == 'publish'">
                                             <span class="label label-success">已发布</span>
-                                        </th:block>
-                                       <th:block th:if="${post.status == 'draft'}">
+                                        </th>
+                                       <th v-if="item.status == 'draft'">
                                            <span class="label label-default">草稿</span>
-                                       </th:block>
+                                       </th>
                                     </td>
                                     <td>
-                                        <a th:href="@{'/admin/article/'+${post.cid}}"
+                                        <a v-href=""
                                            class="btn btn-primary btn-sm waves-effect waves-light m-b-5"><i
                                                 class="fa fa-edit"></i> <span>编辑</span></a>
-                                        <a href="javascript:void(0)" th:onclick="'delPost('+${post.cid}+');'"
+                                        <a href="javascript:void(0)" v-onclick=""
                                            class="btn btn-danger btn-sm waves-effect waves-light m-b-5"><i
                                                 class="fa fa-trash-o"></i> <span>删除</span></a>
-                                        <a class="btn btn-warning btn-sm waves-effect waves-light m-b-5" th:href="${commons.permalink(post)}+'/preview'"
+                                        <a class="btn btn-warning btn-sm waves-effect waves-light m-b-5" v-href=""
                                            target="_blank"><i
                                                 class="fa fa-rocket"></i> <span>预览</span></a>
                                     </td>
                                 </tr>
-                            </th:block>
-
+                            </th>
                             </tbody>
                         </table>
                         
                     	<ol class="page-navigator" th:fragment="pageNav(pageInfo, prevText, nextText, prefix)">
-						    <th:block th:if="${pageInfo.hasPreviousPage}">
-						        <li class="prev"><a th:href="@{'/'+${prefix}+'/'+${pageInfo.prePage}}" th:text="${prevText}"></a></li>
+						    <th:block v-if="">
+						        <li class="prev"><a v-href="" v-text=""></a></li>
 						    </th:block>
 						
 						
@@ -97,15 +97,15 @@
 						                </li>
 						            </th:block>
 						
-						            <th:block th:if="${pageInfo.hasNextPage}">
+						            <th v-if="${pageInfo.hasNextPage}">
 						                <li>
 						                    <a th:href="@{'?page='+${pageInfo.nextPage}}" aria-label="Next">
 						                        下一页&nbsp;<i class="fa fa-angle-right"></i>
 						                    </a>
 						                </li>
-						            </th:block>
+						            </th>
 						
-						            <li><span th:text="'共'+${pageInfo.pages}+'页'"></span></li>
+						            <li><span v-text=""></span></li>
 						        </ul>
 						    </div>
 						</div>
@@ -116,10 +116,14 @@
         </div>
     </div>
 </div>
+</div>
 <script src="//cdn.bootcss.com/jquery/2.2.3/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script src="//cdn.bootcss.com/limonte-sweetalert2/6.4.1/sweetalert2.min.js"></script>
 <script src="/admin/js/jquery.app.js"></script>
+
+<script src="/common/js/vue.js"></script>
+<script src="/admin/js/articleList.js"></script>
 
 </body>
 </html>
